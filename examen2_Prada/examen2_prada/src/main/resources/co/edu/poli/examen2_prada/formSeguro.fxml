@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml"
+         fx:controller="co.edu.poli.examen2_prada.controlador.ControlFormSeguro"
+         tabClosingPolicy="UNAVAILABLE">
+    <tabs>
+
+        <Tab text="Consultar">
+            <VBox spacing="10" style="-fx-padding: 20;">
+                <Label text="Número de seguro:" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="txtNumeroConsulta" promptText="Ej: S001"/>
+                <Button text="Consultar" onAction="#pressConsulta" maxWidth="Infinity"/>
+                <Label text="Resultado:" style="-fx-font-weight: bold;"/>
+                <TextArea fx:id="txtAreaResultado" prefHeight="150" 
+                          editable="false" style="-fx-font-family: monospace;"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="Crear Seguro">
+            <VBox spacing="10" style="-fx-padding: 20;">
+                <Label text="Número:" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="txtNumero" promptText="Ej: S002"/>
+
+                <Label text="Fecha de expedición:" style="-fx-font-weight: bold;"/>
+                <DatePicker fx:id="datePicker"/>
+
+                <Label text="Asegurado:" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="cmbAsegurado" maxWidth="Infinity"/>
+
+                <Label text="Tipo de seguro:" style="-fx-font-weight: bold;"/>
+                <HBox spacing="20">
+                    <RadioButton fx:id="radioVida" text="Vida">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="tipoSeguro"/>
+                        </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="radioVehiculo" text="Vehículo"
+                                 toggleGroup="$tipoSeguro"/>
+                </HBox>
+
+                <Label text="Beneficiario / Marca:" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="txtExtra" promptText="Beneficiario o marca"/>
+
+                <Button text="Crear Seguro" onAction="#pressCrear"
+                        maxWidth="Infinity"
+                        style="-fx-background-color: #2196F3; -fx-text-fill: white; 
+                               -fx-font-weight: bold;"/>
+            </VBox>
+        </Tab>
+
+    </tabs>
+</TabPane>
